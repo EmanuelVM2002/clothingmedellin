@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NOIR · Moda urbana en negro, Medellín</title>
+<title>Clothing Medellín · Moda urbana en negro</title>
 <meta name="description" content="Camisetas, buzos, chaquetas y pantalones en negro. Abre el ropero, elige color y talla, y pide por WhatsApp.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +14,7 @@
     --ease:cubic-bezier(.65,0,.25,1);
     --h:520px; --w:300px; --sp:80px; --aw:280px;
   }
-  *{box-sizing:border-box;margin:0;padding:0}
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
   html{scroll-behavior:smooth}
   body{background:var(--bg);color:var(--ink);font-family:'Jost',system-ui,-apple-system,'Segoe UI',sans-serif;font-weight:300;letter-spacing:.03em;line-height:1.6;overflow-x:hidden}
   body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:90;opacity:.06;
@@ -28,8 +28,8 @@
   header{position:fixed;inset:0 0 auto 0;z-index:60;background:linear-gradient(#060606 82%,rgba(6,6,6,0))}
   .ann{height:34px;display:flex;align-items:center;justify-content:center;gap:2.2rem;background:var(--ink);color:#0a0a0a;font-size:.7rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;white-space:nowrap;overflow:hidden}
   .bar{display:flex;align-items:center;justify-content:space-between;padding:14px 4vw 18px}
-  .logo{font-weight:500;letter-spacing:.5em;font-size:1.15rem;line-height:1.1}
-  .logo small{display:block;font-size:.6rem;letter-spacing:.38em;color:var(--mut);font-weight:300}
+  .logo{display:block;line-height:0}
+  .logo img{display:block;height:46px;width:auto}
   nav{display:flex;gap:2.4rem;font-size:.78rem;letter-spacing:.26em;text-transform:uppercase}
   nav a{position:relative;padding:4px 0;color:#c9c6be;transition:color .3s}
   nav a::after{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform .35s}
@@ -44,7 +44,7 @@
 
   /* ---------- escenario ---------- */
   .stage{position:relative;min-height:100vh;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(360px,.85fr);gap:4vw;padding:138px 4vw 5vh;align-items:stretch;overflow:hidden}
-  .wordmark{position:absolute;left:1vw;top:92px;z-index:0;pointer-events:none;font-weight:600;font-size:clamp(7rem,26vw,24rem);line-height:.9;letter-spacing:.06em;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.07);user-select:none}
+  .wordmark{position:absolute;left:1vw;top:92px;z-index:0;pointer-events:none;font-weight:600;font-size:clamp(5rem,15.5vw,15rem);line-height:.9;letter-spacing:.04em;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.07);user-select:none}
   .cab,.panel{position:relative;z-index:1}
 
   /* ---------- el ropero ---------- */
@@ -55,7 +55,7 @@
       repeating-linear-gradient(90deg,transparent 0 calc(25% - 1px),rgba(255,255,255,.035) calc(25% - 1px) 25%),
       linear-gradient(#0e0e0e,#070707);
     box-shadow:inset 0 0 90px #000,0 40px 90px rgba(0,0,0,.7);
-    touch-action:pan-y}
+    touch-action:pan-y;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
   .shelf{position:absolute;left:0;right:0;top:0;height:30px;z-index:3;background:linear-gradient(#1d1d1d,#0a0a0a);border-bottom:1px solid rgba(255,255,255,.12)}
   .shelf::after{content:'';position:absolute;left:8%;right:8%;bottom:-1px;height:2px;background:var(--warm);opacity:.8;box-shadow:0 0 34px 8px rgba(255,244,220,.28)}
   .rail{position:absolute;left:0;right:0;top:calc(44px + var(--h)*.038);height:5px;z-index:1;background:linear-gradient(#a8a8a8,#262626);box-shadow:0 8px 14px rgba(0,0,0,.75)}
@@ -76,6 +76,8 @@
   .fav-mark{position:absolute;top:calc(var(--h)*.2);left:50%;z-index:5;width:22px;height:22px;margin-left:calc(var(--aw)*.28);opacity:0;transition:opacity .3s;pointer-events:none}
   .item.fav .fav-mark{opacity:.95}
 
+  .cab-logo{position:absolute;left:50%;top:56%;z-index:0;width:84%;max-width:780px;transform:translate(-50%,-50%);opacity:.18;pointer-events:none;-webkit-user-drag:none}
+  .photo{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:50% 0;filter:drop-shadow(0 22px 20px rgba(0,0,0,.65));-webkit-user-drag:none}
   .chips{position:absolute;left:16px;right:16px;bottom:14px;z-index:30;display:flex;flex-wrap:wrap;gap:8px}
   .chip{min-height:38px;background:rgba(0,0,0,.6);border:1px solid var(--line);border-radius:999px;padding:6px 16px;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:#bdbab2;transition:all .25s;backdrop-filter:blur(6px)}
   .chip:hover{color:var(--ink);border-color:rgba(255,255,255,.45)}
@@ -177,7 +179,9 @@
   .lines{flex:1;overflow:auto;padding:8px 24px}
   .line{display:grid;grid-template-columns:62px 1fr auto;gap:14px;padding:16px 0;border-bottom:1px solid var(--line);align-items:start}
   .th{width:62px;height:108px;background:#080808;border-radius:6px;overflow:hidden;border:1px solid var(--line)}
+  .th{position:relative}
   .th svg{width:100%;height:100%;filter:none}
+  .th .photo{filter:none}
   .line b{font-weight:400;font-size:.95rem;display:block;line-height:1.3}
   .line small{display:block;color:var(--mut);font-size:.82rem;margin:.2rem 0 .6rem}
   .qty{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px}
@@ -205,7 +209,7 @@
   .toast.on{transform:translate(-50%,0);opacity:1;pointer-events:auto}
   .toast button{background:none;border:0;border-bottom:1px solid #0a0a0a;font-weight:500;font-size:.88rem;color:#0a0a0a;white-space:nowrap}
 
-  .sticky{display:none}
+  .grab,.cab-arrow{display:none}
 
   /* ---------- móvil ---------- */
   @media (max-width:900px){
@@ -213,18 +217,49 @@
     .tool{padding:0 14px}
     .ann{gap:1rem;font-size:.62rem;letter-spacing:.14em}
     .ann span:nth-child(n+2){display:none}
-    .stage{grid-template-columns:1fr;gap:2rem;padding-top:118px}
-    .cab{height:62vh;min-height:430px}
-    .panel{padding-bottom:2vh}
-    .buy{display:none}
-    .sticky{position:fixed;left:0;right:0;bottom:0;z-index:70;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:12px 4vw calc(12px + env(safe-area-inset-bottom,0px));background:rgba(8,8,8,.92);backdrop-filter:blur(12px);border-top:1px solid var(--line)}
-    .sticky small{display:block;color:var(--mut);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;max-width:22ch;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-    .sticky b{font-weight:400;font-size:1.25rem}
-    .sticky .btn{min-width:0;padding:0 22px;white-space:nowrap}
+    .ann{height:28px}
+    .bar{padding:8px 4vw 10px}
+    .logo img{height:34px}
+    .tool{height:40px}
+    /* primera pantalla: ropero arriba, hoja con la compra abajo; todo cabe sin desplazarse */
+    .stage{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr) var(--sheet,auto);gap:10px;height:100vh;height:100dvh;min-height:540px;padding:92px 0 0;overflow:hidden}
+    .wordmark{display:none}
+    .cab{height:auto;min-height:0;margin:0 3vw}
+    .cab-arrow{display:grid;place-items:center;position:absolute;top:42%;z-index:35;width:40px;height:40px;border-radius:50%;background:rgba(0,0,0,.55);border:1px solid var(--line);font-size:1rem;backdrop-filter:blur(4px)}
+    .cab-arrow.l{left:8px}.cab-arrow.r{right:8px}
+    .chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;left:10px;right:10px;bottom:10px}
+    .chips::-webkit-scrollbar{display:none}
+    .chip{flex:none;min-height:34px;padding:4px 14px;font-size:.68rem}
+    .floor{height:70px}
+    .panel{display:grid;grid-template-columns:minmax(0,1fr) auto;align-content:start;align-items:center;gap:.6rem .8rem;margin:0;padding:4px 5vw calc(12px + env(safe-area-inset-bottom,0px));background:#0b0b0b;border-top:1px solid var(--line);border-radius:18px 18px 0 0;box-shadow:0 -18px 40px rgba(0,0,0,.6)}
+    .panel.swap{transform:none}
+    .panel.open{position:absolute;left:0;right:0;bottom:0;z-index:50;max-height:74vh;max-height:74dvh;overflow-y:auto}
+    .grab{order:0;grid-column:1/-1;display:flex;justify-content:center;align-items:center;gap:.7rem;height:26px;background:none;border:0;color:var(--mut);font-size:.66rem;letter-spacing:.22em;text-transform:uppercase}
+    .grab::before{content:'';width:34px;height:3px;border-radius:2px;background:rgba(255,255,255,.28)}
+    .row{display:contents}
+    .row>div,.cat,.arrows{display:none}
+    h1{order:1;font-size:1.15rem;letter-spacing:.08em;line-height:1.15}
+    .price{order:2;font-size:1.15rem;margin:0;text-align:right}
+    .opt-color{order:3;display:flex;align-items:center;gap:.9rem}
+    .opt-color .lbl{margin:0}
+    .swc{width:32px;height:32px}
+    .swatches{gap:12px}
+    .heart{order:4;width:44px;height:44px}
+    .opt-size{order:5;grid-column:1/-1}
+    .opt-size .lbl{margin-bottom:.35rem}
+    .sizes{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:8px}
+    .size{min-width:0;height:44px;padding:0}
+    .buy{order:6;grid-column:1/-1}
+    .buy .btn{min-height:50px}
+    .desc{order:7;grid-column:1/-1;max-width:none;font-size:.95rem}
+    .trust{order:8;grid-column:1/-1}
+    details.more{order:9;grid-column:1/-1}
+    .panel:not(.open) .desc,.panel:not(.open) .trust,.panel:not(.open) details.more{display:none}
+    section.block{padding:10vh 5vw}
     .why{grid-template-columns:1fr}
-    .desc{max-width:none}
-    footer{padding-bottom:110px}
-    .toast{bottom:92px}
+    footer{padding-bottom:40px}
+    .toast{bottom:auto;top:98px;transform:translate(-50%,-20px)}
+    .toast.on{transform:translate(-50%,0)}
   }
   @media (prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01s!important}}
 </style>
@@ -246,10 +281,10 @@
 <header>
   <div class="ann"><span>Envíos a todo el país</span><span>Pide por WhatsApp en un minuto</span><span>Cambios fáciles</span></div>
   <div class="bar">
-    <a class="logo" href="#top">NOIR<small>MEDELLÍN</small></a>
+    <a class="logo" href="#top" aria-label="Clothing Medellín, inicio"><img src="assets/logo.webp" alt="Clothing Medellín" width="1443" height="286"></a>
     <nav>
       <a href="#ropero">Colección</a>
-      <a href="#por-que">Por qué NOIR</a>
+      <a href="#por-que">Nosotros</a>
       <a href="#preguntas">Preguntas</a>
       <a href="#contacto">Contacto</a>
     </nav>
@@ -268,19 +303,23 @@
 
 <main id="top">
   <section class="stage" id="ropero">
-    <div class="wordmark" aria-hidden="true">NOIR</div>
+    <div class="wordmark" aria-hidden="true">CLOTHING</div>
 
     <div class="cab" id="cab" aria-label="Ropero con prendas colgadas">
       <div class="shelf"></div>
+      <img class="cab-logo" src="assets/logo.webp" alt="" draggable="false">
       <div class="rail"></div>
       <div class="track" id="track"></div>
       <div class="floor"></div>
+      <button class="cab-arrow l" id="cabPrev" aria-label="Prenda anterior">‹</button>
+      <button class="cab-arrow r" id="cabNext" aria-label="Prenda siguiente">›</button>
       <div class="chips" id="chips"></div>
       <div class="doors" aria-hidden="true"><div class="door l"></div><div class="door r"></div></div>
       <button class="open-btn" id="openBtn">Abrir el ropero</button>
     </div>
 
     <aside class="panel" id="panel" aria-live="polite">
+      <button class="grab" id="moreBtn" type="button" aria-expanded="false"><span id="moreTxt">Ver detalles</span></button>
       <div class="row">
         <div>
           <div class="idx"><b id="n">01</b> / <span id="t">08</span></div>
@@ -294,11 +333,11 @@
       <p class="price" id="price"></p>
       <p class="desc" id="desc"></p>
 
-      <div>
+      <div class="opt opt-color">
         <div class="lbl"><span>Color · <b id="colName"></b></span></div>
         <div class="swatches" id="swatches" role="group" aria-label="Color"></div>
       </div>
-      <div>
+      <div class="opt opt-size">
         <div class="lbl"><span>Talla</span><button id="guideBtn" type="button">Guía de tallas</button></div>
         <div class="sizes" id="sizes" role="group" aria-label="Talla"></div>
       </div>
@@ -328,7 +367,7 @@
   </section>
 
   <section class="block" id="por-que">
-    <h2>Por qué NOIR</h2>
+    <h2>Por qué elegirnos</h2>
     <div class="why">
       <article>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.600"/><circle cx="17" cy="18" r="1.600"/></svg>
@@ -364,18 +403,12 @@
 </main>
 
 <footer id="contacto">
-  <span>© 2026 NOIR · Medellín</span>
+  <span>© 2026 Clothing Medellín</span>
   <div>
     <a href="#" id="ig">Instagram</a>
     <a id="waFoot" target="_blank" rel="noopener">WhatsApp</a>
   </div>
 </footer>
-
-<!-- barra fija en móvil -->
-<div class="sticky" id="sticky">
-  <div><small id="sName"></small><b id="sPrice"></b></div>
-  <button class="btn primary" id="sAdd">Agregar</button>
-</div>
 
 <!-- bolsa -->
 <div class="veil" id="veil"></div>
@@ -401,7 +434,14 @@
 <script>
 /* ============ Configuración (cambia estos datos) ============ */
 const WA_NUMBER = '573000000000';
-const BRAND = 'NOIR';
+const BRAND = 'Clothing Medellín';
+
+/* Fotos reales: cuando las tengas, ponlas en la carpeta img/ y escribe aquí el nombre del archivo.
+   Una foto por color:  hoodie: {negro:'img/hoodie-negro.webp', gris:'img/hoodie-gris.webp'}
+   O una sola para todos los colores:  tee: {all:'img/camiseta.webp'}
+   Lo ideal: PNG o WebP con fondo transparente, prenda de frente, proporción 3:5 (alta). Las prendas sin foto siguen dibujadas. */
+const PHOTOS = {
+};
 
 const COLORS = {
   negro:   {n:'Negro',   c:'#121212'},
@@ -409,6 +449,7 @@ const COLORS = {
   gris:    {n:'Gris',    c:'#7c7c7c'},
   hueso:   {n:'Hueso',   c:'#e7e2d6'}
 };
+Object.entries(COLORS).forEach(([k, v]) => v.key = k);
 const TOP = ['S','M','L','XL'], BOTTOM = ['28','30','32','34'];
 const CATEGORIES = [
   {id:'all', label:'Todo'}, {id:'camisetas', label:'Camisetas'}, {id:'buzos', label:'Buzos'},
@@ -478,6 +519,11 @@ function garmentSVG(p, col){
   </svg>`;
 }
 
+function garmentHTML(p, col){
+  const ph = PHOTOS[p.id], src = ph && (ph[col.key] || ph.all);
+  return src ? `<img class="photo" src="${src}" alt="${p.name}" draggable="false">` : garmentSVG(p, col);
+}
+
 /* ============ Estado ============ */
 const $ = id => document.getElementById(id);
 const store = {
@@ -488,8 +534,8 @@ const fmt = new Intl.NumberFormat('es-CO', {style:'currency', currency:'COP', ma
 const cab = $('cab'), track = $('track'), panel = $('panel');
 let list = PRODUCTS.slice(), idx = 0, filter = 'all', M = {sp:80, aw:280, cw:800};
 const colorKey = {}, sizePick = {};
-let cart = store.get('noir.cart', []).filter(l => byId[l.id] && COLORS[l.color] && l.qty > 0);
-let favs = new Set(store.get('noir.favs', []).filter(id => byId[id]));
+let cart = store.get('clm.cart', []).filter(l => byId[l.id] && COLORS[l.color] && l.qty > 0);
+let favs = new Set(store.get('clm.favs', []).filter(id => byId[id]));
 const colorOf = p => COLORS[colorKey[p.id] || p.colors[0]];
 const heartSVG = `<svg class="fav-mark" viewBox="0 0 24 24" fill="#f1eee7"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.600-7 10-7 10z"/></svg>`;
 
@@ -508,7 +554,7 @@ $('favBtn').onclick = () => { document.getElementById('ropero').scrollIntoView()
 /* ============ Ropero ============ */
 function render(){
   track.innerHTML = list.map((p,i) =>
-    `<button class="item${favs.has(p.id) ? ' fav' : ''}" data-i="${i}" aria-label="${p.name}">${heartSVG}<span class="sw">${garmentSVG(p, colorOf(p))}</span></button>`).join('');
+    `<button class="item${favs.has(p.id) ? ' fav' : ''}" data-i="${i}" aria-label="${p.name}">${heartSVG}<span class="sw">${garmentHTML(p, colorOf(p))}</span></button>`).join('');
   $('t').textContent = String(list.length).padStart(2,'0');
 }
 track.addEventListener('click', e => {
@@ -517,7 +563,7 @@ track.addEventListener('click', e => {
 });
 function layout(){
   const r = cab.getBoundingClientRect();
-  const H = Math.max(300, Math.min(r.height - 135, 640)), W = H * 300 / 520;
+  const H = Math.max(190, Math.min(r.height - (innerWidth <= 900 ? 112 : 135), 640)), W = H * 300 / 520;
   M.cw = r.width;
   M.sp = Math.max(44, Math.min(W * .3, r.width / (list.length + 2.5)));
   M.aw = W * .92;
@@ -527,7 +573,7 @@ function layout(){
   shift();
 }
 function shift(){ track.style.transform = `translateX(${M.cw/2 - (idx * M.sp + M.aw/2)}px)`; }
-addEventListener('resize', layout);
+new ResizeObserver(layout).observe(cab); // se reajusta si cambia el tamaño o se abre el panel de detalles
 
 function setActive(i, instant){
   idx = Math.max(0, Math.min(list.length - 1, i));
@@ -556,12 +602,11 @@ function fill(){
   $('sizes').innerHTML = p.sizes.map(s =>
     `<button class="size${sizePick[p.id] === s ? ' on' : ''}" data-s="${s}" aria-pressed="${sizePick[p.id] === s}">${s}</button>`).join('');
   $('heart').setAttribute('aria-pressed', favs.has(p.id));
-  $('sName').textContent = p.name; $('sPrice').textContent = fmt.format(p.price);
 }
 $('swatches').addEventListener('click', e => {
   const b = e.target.closest('.swc'); if (!b) return;
   const p = list[idx]; colorKey[p.id] = b.dataset.c;
-  track.children[idx].querySelector('.sw').innerHTML = garmentSVG(p, colorOf(p));
+  track.children[idx].querySelector('.sw').innerHTML = garmentHTML(p, colorOf(p));
   fill();
 });
 $('sizes').addEventListener('click', e => {
@@ -571,12 +616,22 @@ $('sizes').addEventListener('click', e => {
 $('heart').onclick = () => {
   const p = list[idx];
   if (favs.has(p.id)) favs.delete(p.id); else { favs.add(p.id); toast('Guardado en favoritos'); }
-  store.set('noir.favs', [...favs]);
+  store.set('clm.favs', [...favs]);
   track.children[idx].classList.toggle('fav', favs.has(p.id));
   fill(); updateBadges();
 };
 $('prev').onclick = () => go(idx - 1);
 $('next').onclick = () => go(idx + 1);
+$('cabPrev').onclick = () => go(idx - 1);
+$('cabNext').onclick = () => go(idx + 1);
+$('moreBtn').onclick = () => {
+  const stage = document.getElementById('ropero');
+  if (!panel.classList.contains('open')) stage.style.setProperty('--sheet', panel.offsetHeight + 'px'); // el ropero conserva su tamaño
+  else stage.style.removeProperty('--sheet');
+  const open = panel.classList.toggle('open');
+  $('moreBtn').setAttribute('aria-expanded', open);
+  $('moreTxt').textContent = open ? 'Ocultar detalles' : 'Ver detalles';
+};
 addEventListener('keydown', e => {
   if (e.key === 'Escape') { closeBag(); return; }
   if ($('drawer').classList.contains('on') || $('guide').open || /INPUT|TEXTAREA/.test(document.activeElement.tagName)) return;
@@ -614,8 +669,8 @@ function addToBag(){
   const p = list[idx], size = sizePick[p.id];
   if (!size){
     const el = $('sizes'); el.classList.remove('shake'); void el.offsetWidth; el.classList.add('shake');
-    document.getElementById('ropero').scrollIntoView({block:'start'});
-    el.scrollIntoView({block:'center', behavior:'smooth'});
+    const rc = el.getBoundingClientRect();
+    if (rc.top < 0 || rc.bottom > innerHeight) el.scrollIntoView({block:'center', behavior:'smooth'}); // solo si no se ven
     toast('Elige tu talla para continuar'); return;
   }
   const color = colorKey[p.id] || p.colors[0];
@@ -623,9 +678,9 @@ function addToBag(){
   if (line) line.qty++; else cart.push({id:p.id, color, size, qty:1});
   saveCart(); toast(`${p.name} (${COLORS[color].n}, ${size}) agregado`, 'Ver bolsa', openBag);
 }
-$('add').onclick = addToBag; $('sAdd').onclick = addToBag;
+$('add').onclick = addToBag;
 
-function saveCart(){ store.set('noir.cart', cart); renderBag(); updateBadges(true); }
+function saveCart(){ store.set('clm.cart', cart); renderBag(); updateBadges(true); }
 function updateBadges(bump){
   const n = cart.reduce((a,l) => a + l.qty, 0);
   $('bagCount').textContent = n; $('favCount').textContent = favs.size;
@@ -636,7 +691,7 @@ function renderBag(){
   $('lines').innerHTML = cart.length ? cart.map((l,i) => {
     const p = byId[l.id];
     return `<div class="line">
-      <div class="th">${garmentSVG(p, COLORS[l.color])}</div>
+      <div class="th">${garmentHTML(p, COLORS[l.color])}</div>
       <div><b>${p.name}</b><small>${COLORS[l.color].n} · Talla ${l.size}</small>
         <div class="qty"><button data-a="dec" data-i="${i}" aria-label="Quitar uno">−</button><span>${l.qty}</span><button data-a="inc" data-i="${i}" aria-label="Agregar uno">+</button></div></div>
       <div><div class="pr">${fmt.format(p.price * l.qty)}</div><button class="rm" data-a="rm" data-i="${i}">Quitar</button></div>
